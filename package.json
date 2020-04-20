@@ -1,5 +1,5 @@
 {
-  "name": "data-utilities",
+  "name": "simple-data-utilities",
   "version": "1.0.0",
   "description": "A set of utility functions for manupilating data",
   "main": "index.js",
