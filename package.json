@@ -1,6 +1,6 @@
 {
   "name": "simple-data-utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of utility functions for manupilating data",
   "main": "index.js",
   "scripts": {
