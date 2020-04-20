@@ -1,5 +1,5 @@
 {
-  "name": "simple-data-utilities",
+  "name": "@eshaanmathur/data-utilities",
   "version": "1.0.2",
   "description": "A set of utility functions for manupilating data",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eshaanmathur/simple-data-utilities"
+    "url": "git+https://github.com/eshaanmathur/data-utilities"
   },
   "keywords": [
     "utility",
@@ -17,9 +17,9 @@
   "author": "Eshaan Mathur",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eshaanmathur/simple-data-utilities/issues"
+    "url": "https://github.com/eshaanmathur/data-utilities/issues"
   },
-  "homepage": "https://github.com/eshaanmathur/simple-data-utilities#readme",
+  "homepage": "https://github.com/eshaanmathur/data-utilities#readme",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "eslint": "^5.16.0",
