@@ -1,4 +1,4 @@
-const parseSheet = require('../lib/parse-sheet');
+const parseSheet = require('../lib/parseSheet');
 
 describe('parse sheet', () => {
   const input = [

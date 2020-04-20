@@ -1,4 +1,4 @@
-const parseCsv = require('../lib/parse-csv');
+const parseCsv = require('../lib/parseCsv');
 
 describe('parse csv', () => {
   const rawText = 'name,email\nJon Doe,jon@example.com';
