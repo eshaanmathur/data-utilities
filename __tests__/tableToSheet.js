@@ -4,7 +4,7 @@ describe('tableToSheet', () => {
   const input = [
     {
       key: 'one',
-      count: 1,
+      count: 0,
       rank: 3,
       select: 'yes',
     },
@@ -23,7 +23,7 @@ describe('tableToSheet', () => {
 
   const output = [
     ['count', 'foo', 'key', 'rank', 'select'],
-    [1, null, 'one', 3, 'yes'],
+    [0, null, 'one', 3, 'yes'],
     [2, 'bar', 'two', 2, null],
     [3, null, 'three', 1, null],
   ];
