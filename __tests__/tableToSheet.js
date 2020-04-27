@@ -6,11 +6,13 @@ describe('tableToSheet', () => {
       key: 'one',
       count: 1,
       rank: 3,
+      select: 'yes',
     },
     {
       key: 'two',
       count: 2,
       rank: 2,
+      foo: 'bar',
     },
     {
       key: 'three',
@@ -20,10 +22,10 @@ describe('tableToSheet', () => {
   ];
 
   const output = [
-    ['key', 'count', 'rank'],
-    ['one', 1, 3],
-    ['two', 2, 2],
-    ['three', 3, 1],
+    ['count', 'foo', 'key', 'rank', 'select'],
+    [1, null, 'one', 3, 'yes'],
+    [2, 'bar', 'two', 2, null],
+    [3, null, 'three', 1, null],
   ];
 
   const result = tableToSheet(input);
