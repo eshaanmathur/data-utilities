@@ -6,5 +6,6 @@ const parseSheet = require('./lib/parseSheet');
 const reportToTable = require('./lib/reportToTable');
 const tableToSheet = require('./lib/tableToSheet');
 const percentage = require('./lib/percentage');
+const tableToReport = require('./lib/tableToReport');
 
-module.exports = { unique, count, rank, parseCsv, parseSheet, reportToTable, tableToSheet, percentage };
+module.exports = { unique, count, rank, parseCsv, parseSheet, reportToTable, tableToSheet, percentage, tableToReport };
