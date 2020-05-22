@@ -1,30 +1,31 @@
-export function pick(obj, keys) {
+export function pick(obj: { [key: string]: any }, keys: string[]) {
   return Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key)));
 }
 
-export function unique(list) {
-  return [...new Set(list)];
+export function unique<T>(list: T[]) {
+  const setList = new Set(list)
+  return [...setList];
 }
 
-export function parseCsv(text, s = ',') {
+export function parseCsv(text: string, s = ',') {
   return text
     .trim()
     .split('\n')
     .map(row => row.trim().split(s));
 }
 
-export function parseSheet(sheet) {
+export function parseSheet(sheet: any[][]) {
   const [headers, ...rows] = sheet;
   return rows.map(row => Object.fromEntries(headers.map((key, idx) => [key, row[idx]])));
 }
 
-export function toSheet(table) {
+export function toSheet(table: { [key: string]: any }[]) {
   const headers = unique(table.map(Object.keys).flat()).sort();
   const rows = table.map(item => headers.map(key => (item[key] === undefined ? null : item[key])));
   return [headers, ...rows];
 }
 
-export function count(report, filterFn = null) {
+export function count(report: Map<any, any>, filterFn: (item: any) => boolean | null) {
   const countReport = new Map();
 
   for (const [key, reportItems] of report.entries()) {
@@ -38,7 +39,7 @@ export function count(report, filterFn = null) {
   return countReport;
 }
 
-export function percentage(report, filterFn = null) {
+export function percentage(report: Map<any, any>, filterFn: (item: any) => boolean | null) {
   const countReport = count(report, filterFn);
   const list = [...countReport];
   const total = [...countReport.values()].reduce((sum, itemCount) => sum + itemCount, 0);
@@ -46,7 +47,7 @@ export function percentage(report, filterFn = null) {
   return percentageReport;
 }
 
-export function rank(report, filterFn = null) {
+export function rank(report: Map<any, any>, filterFn: (item: any) => boolean | null) {
   const countReport = count(report, filterFn);
   const list = [...countReport];
   const sorted = list.sort(([_a, a], [_b, b]) => {
@@ -64,7 +65,7 @@ export function rank(report, filterFn = null) {
   return new Map(sorted.map(([key], idx) => [key, idx]));
 }
 
-export function createReport(tableData, key, pickKeys) {
+export function createReport(tableData: { [key: string]: any }[], key: string, pickKeys: string[]) {
   const report = new Map();
 
   tableData.forEach(item => {
