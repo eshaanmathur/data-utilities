@@ -1,12 +1,12 @@
 {
   "name": "@eshaanmathur/data-utilities",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "A set of utility functions for manupilating data",
   "main": "build/index.js",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
