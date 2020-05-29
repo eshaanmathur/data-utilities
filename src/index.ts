@@ -1,31 +1,31 @@
-export function pick(obj: { [key: string]: any }, keys: string[]) {
+export function pick(obj: { [key: string]: any }, keys: string[]): { [key: string]: any } {
   return Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key)));
 }
 
-export function unique<T>(list: T[]) {
+export function unique<T>(list: T[]): T[] {
   const setList = new Set(list);
   return [...setList];
 }
 
-export function parseCsv(text: string, s = ',') {
+export function parseCsv(text: string, s = ','): string[][] {
   return text
     .trim()
     .split('\n')
     .map((row) => row.trim().split(s));
 }
 
-export function parseSheet(sheet: any[][]) {
+export function parseSheet(sheet: any[][]): Array<{ [key: string]: any }> {
   const [headers, ...rows] = sheet;
   return rows.map((row) => Object.fromEntries(headers.map((key, idx) => [key, row[idx]])));
 }
 
-export function toSheet(table: { [key: string]: any }[]) {
+export function toSheet(table: { [key: string]: any }[]): any[][] {
   const headers = unique(table.map(Object.keys).flat()).sort();
   const rows = table.map((item) => headers.map((key) => (item[key] === undefined ? null : item[key])));
   return [headers, ...rows];
 }
 
-export function count(report: Map<any, any>, filterFn?: (item: any) => boolean) {
+export function count(report: Map<any, any>, filterFn?: (item: any) => boolean): Map<any, number> {
   const countReport = new Map();
 
   for (const [key, reportItems] of report.entries()) {
@@ -39,7 +39,7 @@ export function count(report: Map<any, any>, filterFn?: (item: any) => boolean) 
   return countReport;
 }
 
-export function percentage(report: Map<any, any>, filterFn?: (item: any) => boolean) {
+export function percentage(report: Map<any, any>, filterFn?: (item: any) => boolean): Map<any, number> {
   const countReport = count(report, filterFn);
   const list = [...countReport];
   const total = [...countReport.values()].reduce((sum, itemCount) => sum + itemCount, 0);
@@ -47,7 +47,7 @@ export function percentage(report: Map<any, any>, filterFn?: (item: any) => bool
   return percentageReport;
 }
 
-export function rank(report: Map<any, any>, filterFn?: (item: any) => boolean) {
+export function rank(report: Map<any, any>, filterFn?: (item: any) => boolean): Map<any, number> {
   const countReport = count(report, filterFn);
   const list = [...countReport];
   const sorted = list.sort((aItem, bItem) => {
@@ -68,7 +68,7 @@ export function rank(report: Map<any, any>, filterFn?: (item: any) => boolean) {
   return new Map(sorted.map(([key], idx) => [key, idx]));
 }
 
-export function createReport(tableData: { [key: string]: any }[], key: string, pickKeys: string[]) {
+export function createReport(tableData: { [key: string]: any }[], key: string, pickKeys: string[]): Map<any, any> {
   const report = new Map();
 
   tableData.forEach((item) => {
