@@ -7,7 +7,7 @@
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "ehco \"no linter\"",
+    "lint": "elsint --fix src/**/*.ts",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
