@@ -1,5 +1,8 @@
-export function pick(obj: { [key: string]: any }, keys: string[]): { [key: string]: any } {
-  return Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key)));
+export function pick(obj: { [key: string]: any }, keys?: string[]): { [key: string]: any } {
+  if (keys) {
+    return Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key)));
+  }
+  return obj;
 }
 
 export function unique<T>(list: T[]): T[] {
@@ -68,7 +71,7 @@ export function rank(report: Map<any, any>, filterFn?: (item: any) => boolean): 
   return new Map(sorted.map(([key], idx) => [key, idx]));
 }
 
-export function createReport(tableData: { [key: string]: any }[], key: string, pickKeys: string[]): Map<any, any> {
+export function createReport(tableData: { [key: string]: any }[], key: string, pickKeys?: string[]): Map<any, any> {
   const report = new Map();
 
   tableData.forEach((item) => {
