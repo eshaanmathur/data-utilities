@@ -1,4 +1,4 @@
-import { unique, createReport, count } from '../index';
+import { unique, createReport, count, percentage } from '../index';
 
 describe('unique()', () => {
   const list = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
@@ -67,6 +67,29 @@ describe('count()', () => {
   ]);
 
   const result = count(input);
+  it('should return a result that matches output', () => {
+    expect(output).toEqual(result);
+  });
+});
+
+describe('percentage()', () => {
+  const input = new Map([
+    [
+      30,
+      [
+        { name: 'Jon Doe', email: 'jon@email.com' },
+        { name: 'Json', email: 'test@email.com' },
+      ],
+    ],
+    [28, [{ name: 'Jane Doe', email: 'jane@email.com' }]],
+  ]);
+
+  const output = new Map([
+    [30, 2 / 3],
+    [28, 1 / 3],
+  ]);
+
+  const result = percentage(input);
   it('should return a result that matches output', () => {
     expect(output).toEqual(result);
   });
