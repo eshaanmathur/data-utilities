@@ -1,6 +1,6 @@
 {
   "name": "@eshaanmathur/data-utilities",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "A set of utility functions for manupilating data",
   "main": "build/index.js",
   "scripts": {
