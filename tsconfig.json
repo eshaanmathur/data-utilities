@@ -5,16 +5,9 @@
     "declaration": true,
     "outDir": "./build",
     "strict": true,
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "downlevelIteration": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/__tests__/*"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
 }
